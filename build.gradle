@@ -4,7 +4,6 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:hibernate5:7.0.5"
         classpath "org.grails.plugins:views-gradle:2.0.4"
     }
 }
@@ -66,6 +65,8 @@ dependencies {
     testCompile "org.grails:grails-web-testing-support"
     testCompile "org.grails:views-json-testing-support"
     testCompile "org.hibernate.validator:hibernate-validator:6.0.20.Final"
+
+    compile "org.grails.plugins:mongodb"
 }
 
 bootRun {
