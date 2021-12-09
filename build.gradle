@@ -3,8 +3,8 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:views-gradle:2.0.4"
+        classpath "org.grails:grails-gradle-plugin:5.0.0"
+        classpath "org.grails.plugins:views-gradle:2.1.1"
     }
 }
 

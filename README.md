@@ -1,5 +1,27 @@
 # `@GrailsCompileStatic` issue with Mongo Gorm
 
+Static type checking is causing compilation issues with projects using Mongo GORM. When the `@GrailsCompileStatic` is removed, the code compiles and runs correctly.
+
+This exact code works with `@GrailsCompileStatic` in Grails 4.0.13 (see the `grails4` branch)
+
+```
+❯ ./gradlew clean build
+
+> Task :compileGroovy
+startup failed:
+/projects/gcsmongo/grails-app/services/gcsmongo/PersonService.groovy: 24: [Static type checking] - Cannot call com.mongodb.client.MongoCollection <org.bson.Document>#aggregate(java.util.List <? extends java.util.Map <java.lang.String, java.lang.Object>>) with arguments [java.util.List <org.bson.conversions.Bson>] 
+ @ line 24, column 54.
+    = Person.collection.aggregate([
+                                 ^
+
+/projects/gcsmongo/grails-app/services/gcsmongo/PersonService.groovy: 24: [Static type checking] - Cannot find matching method java.lang.Object#first(). Please check if the declared type is correct and if the method exists.
+ @ line 24, column 27.
+           Document result = Person.collection.aggregate([
+                             ^
+
+2 errors
+```
+
 ## Steps
 
 ### Grails 4
